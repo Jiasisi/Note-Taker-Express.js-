@@ -26,17 +26,23 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     console.log(`${req.method} request received`);
 
-    let response;
-    if (req.body && req.body.title) {
-        response = {
-            status: 'success',
-            data: req.body,
+    const { title, text } = req.body;
+    if (title && text) {
+        const newNote = {
+            title,
+            text,
         };
-        notesDate.push(req.data);
-        res.json(`Note for ${response.data.title} has been added!`);
+        
+        const response = {
+            status: 'success',
+            body: newNote,
+        };
+  
+        notesDate.push(newNote);
+        console.log(`Note for ${response.data.title} has been added!`);
     
     } else {
-        res.json('Note body must at least contain a title');
+        console.log('Note body must at least contain a title');
 
     }
     console.log(req.body);
