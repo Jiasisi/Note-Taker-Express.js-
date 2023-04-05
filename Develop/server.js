@@ -19,12 +19,12 @@ app.get('/', (req, res) =>
 
 
 app.get('/api/notes', (req, res) => {
-    res.json(`${req.method} request received`);
+    console.log(`${req.method} request received`);
     res.json(notesDate)
 });
 
 app.post('/api/notes', (req, res) => {
-    res.json(`${req.method} request received`);
+    console.log(`${req.method} request received`);
 
     let response;
     if (req.body && req.body.title) {
