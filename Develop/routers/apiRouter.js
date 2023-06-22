@@ -39,6 +39,21 @@ apiRouter.post('/notes', (req, res) => {
         .catch (err => console.error(err));
 });
 
+apiRouter.delete('/notes/:id', (req, res) => {
+    console.log(`${req.method} request received`);
+
+    readNotes('Develop/db/db.json', 'utf-8')
+        .then(data => {
+            const notesList = JSON.parse(data);
+            const newList = notesList.filter(note => note.id != req.params.id);
+            writeNotes('Develop/db/db.json', JSON.stringify(newList));
+            return res.json(newList);
+        })
+        .catch (err => console.log(err));
+
+})
+
+
 
 module.exports = apiRouter;
 
