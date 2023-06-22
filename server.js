@@ -1,12 +1,11 @@
 const express = require('express');
-const path = require('path');
-const fs = require('fs');
-
-const PORT = 3001;
 
 const app = express();
+
 const apiRouter = require('./Develop/routers/apiRouter');
 const homeRouter = require('./Develop/routers/homeRouter')
+
+const PORT = 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

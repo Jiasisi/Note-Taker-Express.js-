@@ -1,5 +1,5 @@
 const apiRouter = require('express').Router();
-const { V4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 const util = require('util');
 const fs = require('fs');
@@ -8,7 +8,7 @@ const readNotes = util.promisify(fs.readFile);
 const writeNotes = util.promisify(fs.writeFile);
 
 
-apiRouter.get('./notes', (req, res) => {
+apiRouter.get('/notes', (req, res) => {
     console.log(`${req.method} request received`);
     readNotes('Develop/db/db.json', 'utf-8')
         .then(data => {
@@ -19,7 +19,7 @@ apiRouter.get('./notes', (req, res) => {
    
 });
  
-apiRouter.post('./notes', (req, res) => {
+apiRouter.post('/notes', (req, res) => {
     console.log(`${req.method} request received`);
 
     let newNote = req.body;
@@ -39,6 +39,8 @@ apiRouter.post('./notes', (req, res) => {
         .catch (err => console.error(err));
 });
 
+
+module.exports = apiRouter;
 
        
 
