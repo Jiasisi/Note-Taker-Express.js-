@@ -16,7 +16,7 @@ I can create a new note and store it in the note list, and I can click the note 
 ## Links
 
 * The URL of the functional, deployed application:
-https://dry-bastion-49191-78ddb1a64d95.herokuapp.com/notes
+https://dry-bastion-49191-78ddb1a64d95.herokuapp.com/
 
 
 * The URL of the GitHub repository:
